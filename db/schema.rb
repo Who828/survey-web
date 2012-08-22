@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20120822102304) do
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.integer  "radio_question_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "options", ["radio_question_id"], :name => "index_options_on_question_id"
+
   create_table "questions", :force => true do |t|
     t.text     "content"
     t.integer  "survey_id"
