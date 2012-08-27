@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag 'survey_builder' %>
+<h1> <%= t ".create_survey" %> </h1>
+
+<div id="container">
+  <div class="sidebar">
+    <ul class="tabs">
+      <li class="active" data-tab-target="#question_picker_pane"><%= 'Pick Q Type' %></li>
+      <li data-tab-target="#settings_pane"><%= 'Settings' %></li>
+    </ul>
+
+    <div class="question_picker_pane" id="question_picker_pane">
+      <%= link_to "Add slq", '#', :id => 'add_slq' %>
+    </div>
+
+    <div class="settings_pane" id="settings_pane">
+      Settings...
+    </div>
+  </div>
+
+  <div class="dummy_form_display" id="dummy_form_display">
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    SurveyApp.tabify($('.sidebar'));
+    window.dummy_pane = new SurveyWeb.Views.DummyPane
+    $('#add_slq').click(function(){ window.dummy_pane.add_new_question(); });
+
+    _.templateSettings = {
+      interpolate: /\{\{\=(.+?)\}\}/g,
+      evaluate: /\{\{(.+?)\}\}/g
+    };    
+  });
+</script>
+
+<script type="text/template" id="single_line_dummy_question_template">
+  <%= (render 'dummies/single_line').gsub('mustache_id', '{{id}}').html_safe %>
+</script>
