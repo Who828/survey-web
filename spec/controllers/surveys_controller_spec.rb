@@ -25,22 +25,8 @@ describe SurveysController do
         assigns(:survey).should_not be_nil
       end
 
-      it "redirects to the root page" do
-        post :create, :survey => survey
-        response.should redirect_to(:root)
-        flash[:notice].should_not be_nil
-      end
-
       it "creates a survey" do
         expect { post :create, :survey => survey }.to change { Survey.count }.by(1)
-      end
-    end
-
-    context "when save is unsuccessful" do
-      it "renders the new page" do
-        post :create
-        response.should be_ok
-        response.should render_template(:new)
       end
     end
   end
