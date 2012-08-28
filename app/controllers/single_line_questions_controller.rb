@@ -1,6 +1,6 @@
 class SingleLineQuestionsController < ApplicationController
   def create
-    slq = SingleLineQuestion.create(:content => "Untitled")
+    slq = SingleLineQuestion.create(:content => "Untitled", :survey_id => params[:survey_id])
     render :json => {:id => slq.id}
   end
 

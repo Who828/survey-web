@@ -6,9 +6,9 @@ SurveyWeb::Application.routes.draw do
 
     resources :surveys do
       resources :responses, :only => [:new, :create, :show]
+      resources :single_line_questions, :only => [:show, :create, :update]
     end
 
-    resources :single_line_questions, :only => [:show, :create, :update]
     match '/surveys/build/:id', :to => "surveys#build", as: 'build_survey'
 
     root :to => 'surveys#index'

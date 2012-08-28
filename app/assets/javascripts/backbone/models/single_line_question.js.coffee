@@ -1,8 +1,6 @@
 class SurveyWeb.Models.SingleLineQuestion extends Backbone.Model
-  urlRoot:  '/single_line_questions'
-
   initialize: ->
-    that = this
+    this.urlRoot = window.location.pathname.replace('/build', '') + '/single_line_questions'
     this.save()
 
   defaults: {
