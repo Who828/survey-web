@@ -1,32 +1,33 @@
 @import 'susy';
 @import 'base_layout';
-@import "compass/css3/border-radius";
+@import "compass/css3";
 
+$total-columns: 12;
+$column-width: 60px;
+$gutter-width: 20px;
+$grid-padding: 10px;
 
-.surveys_table {
-  th {
-    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica,
-    sans-serif;
-    color: $tab_header_color;
-    border: 1px solid $border_color;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: left;
-    padding: 6px 6px 6px 12px;
-    background: $tab_header_bg_color;
-  }
+$app_min_height: 600px;
 
-  td {
-  border: 1px solid $border_color;
-  padding: 6px 6px 6px 12px;
-  }
-
-  .survey_expiry_date {
-    width : 10%;
-  }
+.container {
+  @include container;
 }
 
-.filters {
-  display: inline;
+.surveys_list {
+  @include span-columns(12, 12);
+}
+
+.survey {
+  background: $e;
+  padding: 7px;
+  @include box-shadow($c 2px 2px 10px);
+}
+
+.name {
+  color: $a;
+  font-weight: bold;
+}
+.status {
+  font-size: 1.5em;
   float: right;
 }
