@@ -32,7 +32,12 @@ h1 {
     text-decoration: none;
   }
   .filters {
-    clear: right;
+    display: block;
+    margin-top: 40px;
+    a {
+      color: $e;
+      &:hover { text-decoration: underline; }
+    }
   }
 }
 
