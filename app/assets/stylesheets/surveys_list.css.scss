@@ -16,8 +16,38 @@ $app_min_height: 600px;
   @include container;
 }
 
+.pagination {
+  text-align: center;
+  padding: 1em;
+  cursor: default; 
+
+  & a, & span {
+    padding: 0.2em 0.3em; 
+  }
+  & .disabled {
+    color: $disabled-action; 
+  }
+  & .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: $a;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+  }
+  & a {
+    text-decoration: none;
+    color: $d;
+  }
+  & a:hover, & a:focus {
+    text-decoration: underline;
+  }
+}
+
 .surveys_list {
   @include span-columns(12, 12);
+  margin-bottom: 20px;
 }
 
 .survey {
