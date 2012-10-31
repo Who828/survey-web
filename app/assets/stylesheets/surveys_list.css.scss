@@ -20,7 +20,21 @@ $app_min_height: 600px;
 .survey {
   background: $e;
   padding: 7px;
-  @include box-shadow($c 2px 2px 10px);
+  margin-top: 20px;
+  li {
+    a {
+      i {
+        margin-right: 3px;
+        font-size: 1.1em;
+        color: $c;
+      }
+      font-size: 1.1em;
+      display: inline;
+      padding-left: 5px;
+      text-decoration: none;
+      color: $a;
+    }
+  }
 }
 
 .name {

@@ -24,6 +24,10 @@ class SurveyDecorator < Draper::Base
     question.report_data.unshift(header).to_json.html_safe
   end
 
+  def icon_for(css_class, text)
+    "<i class=#{css_class}></i>".html_safe + text
+  end
+
   private
 
   def template_tag(content, id)

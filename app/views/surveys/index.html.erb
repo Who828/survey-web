@@ -1,3 +1,4 @@
+
 <%= stylesheet_link_tag 'surveys_list' %>
 
 <h1> <%= t '.list_of_surveys' %> </h1>
@@ -25,6 +26,7 @@
     <div class="survey_details">
       <h2 class="name"><%= survey.name %></h2>
       <span class="organization_name"><%= survey.organization_name(@organizations) %></span>
+      <%= "Count is #{survey.responses.count}" %>
       <div class="description">
         <span class="truncated_description">
           <%= truncate(survey.description, :length => 120)%>
@@ -37,23 +39,24 @@
       <span class="expiry_date"><%= survey.expiry_date %></span>
     </div>
 
-    <div class="response_operations">
-      <%= survey.responses.count %>
-      <%= link_to image_tag("add.png", :title => t(".add_response")), survey_responses_path(survey.id), :method => :post%>
-      <%= link_to button_tag(t ".list_responses"), survey_responses_path(survey.id) %>
-    </div>
+    <ul>
+      <div class="response_operations">
+        <li><%= link_to survey.icon_for('icon-plus-sign', t(".add_response")), survey_responses_path(survey.id), :method => :post%></li>
+        <li><%= link_to survey.icon_for('icon-list', t(".list_responses")), survey_responses_path(survey.id) %></li>
+      </div>
 
-    <div class="cso_admin_operations">
-      <% if survey.published %>
-      <%= link_to button_tag(t ".share_survey"), survey_share_with_organizations_path(survey.id) if can? :share_with_organizations, survey %>
-      <% else %>
-      <%= link_to image_tag("edit.png"), surveys_build_path(survey.id), :title => t(".edit_survey") if can? :edit, survey %>
-      <% end %>
-      <%= link_to button_tag(t ".publish_survey"), survey_publish_to_users_path(survey.id) if can? :publish_to_users, survey %>
-      <%= link_to image_tag("duplicate.png"), duplicate_survey_path(survey.id), :method => :post, :data => { :confirm => t(:confirm) } if can? :duplicate, survey %>
-      <%= link_to image_tag("delete.png"), survey_path(survey.id), :method => :delete, :data => { :confirm => t(:confirm) } if can? :destroy, survey %>
-      <%= link_to image_tag("report.png"), report_survey_path(survey.id) if can? :report, survey %>
-    </div>
+      <div class="cso_admin_operations">
+        <% if survey.published %>
+          <li><%= link_to survey.icon_for('icon-group', t(".share")), survey_share_with_organizations_path(survey.id) if can? :share_with_organizations, survey %></li>
+        <% else %>
+          <li><%= link_to survey.icon_for('icon-edit', t('.edit')), surveys_build_path(survey.id)  if can? :edit, survey %></li>
+        <% end %>
+        <li><%= link_to survey.icon_for('icon-arrow-up', t(".publish")), survey_publish_to_users_path(survey.id) if can? :publish_to_users, survey %></li>
+        <li><%= link_to survey.icon_for('icon-copy', t('.duplicate')), duplicate_survey_path(survey.id), :method => :post, :data => { :confirm => t(:confirm) } if can? :duplicate, survey %></li>
+        <li><%= link_to survey.icon_for('icon-trash', t('.delete')), survey_path(survey.id), :method => :delete, :data => { :confirm => t(:confirm) } if can? :destroy, survey %></li>
+        <li><%= link_to survey.icon_for('icon-bar-chart', t('.reports')), report_survey_path(survey.id) if can? :report, survey %></li>
+      </div>
+    </ul>
   </div>
   <% end %>
   <% end %>
