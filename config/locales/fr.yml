@@ -43,7 +43,7 @@ fr:
       published: "Publié"
       unpublished: "Inédit"
       all: "Tous"
-      create: "Créer un nouveau sondage"
+      create: "Créer sondage"
       delete: "Effacer"
       publish: "Publier"
       unpublish: "Dépublier"

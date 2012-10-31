@@ -21,9 +21,41 @@ h1 {
   font-weight: 800;
   letter-spacing: 0.03em; 
   font-size: 3em;
+  display: inline;
+}
+
+.admin_tasks {
+  display: inline;
+  float :right;
+  a {
+    color: $e;
+    text-decoration: none;
+  }
+  .filters {
+    clear: right;
+  }
+}
+
+a.create_survey {
+  color: $a !important;
+  padding: 6px 10px;
+  float: right;
+  background-color: $d;
+  font-size: 1.1em;
+  font-family: 'Abel', sans-serif;
+  text-decoration: none;
+  vertical-align: middle;
+  @include border-radius(9px);
+  i {
+    margin-right: 5px;
+  }
+  &:hover {
+    color: lighten($a, 5%) !important;
+  }
 }
 
 .pagination {
+  clear: both;
   text-align: center;
   padding: 1em;
   cursor: default;
@@ -55,7 +87,7 @@ h1 {
 
 .surveys_list {
   @include span-columns(12, 12);
-  margin-bottom: 20px;
+  margin: 25px 0 20px 0;
 }
 
 .survey {
