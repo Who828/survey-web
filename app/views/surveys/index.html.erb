@@ -22,7 +22,7 @@
     <div class="survey_details">
       <h2 class="name"><%= survey.name %></h2>
       <span class="organization_name"><%= survey.organization_name(@organizations) %></span>
-      <span class="expiry_date"><%= survey.expiry_date %></span>
+      <p class="expiry_date"><%= "Expires on #{survey.expiry_date.to_formatted_s(:long_ordinal)}" %></p>
       <p class="description">
         <%= survey.description %>
       </p>

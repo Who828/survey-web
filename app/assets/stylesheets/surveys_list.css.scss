@@ -27,10 +27,12 @@ $app_min_height: 600px;
 
   &.unpublished {
     background-color: $a;
+    &:hover { background-color: darken($a, 3%); }
   }
 
   &.published {
     background-color: $b;
+    &:hover { background-color: darken($b, 3%); }
   }
 
   .organization_name {
@@ -49,6 +51,14 @@ $app_min_height: 600px;
   .description {
     margin: 15px 25px;
     text-align: justify;
+  }
+
+  .expiry_date {
+    margin: 15px 25px;
+    font-family: 'PT Sans', sans-serif;
+    margin-top: 10px;
+    font-size: 0.8em;
+    font-style: italic;
   }
 
   .name {
