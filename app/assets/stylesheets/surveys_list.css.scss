@@ -9,6 +9,8 @@ $grid-padding: 10px;
 
 $app_min_height: 600px;
 
+@import url(http://fonts.googleapis.com/css?family=Dosis:600|Abel|PT+Sans:400italic&subset=latin,latin-ext);
+
 .container {
   @include container;
 }
@@ -17,21 +19,35 @@ $app_min_height: 600px;
   @include span-columns(12, 12);
 }
 
+
 .survey {
   background: $e;
-  padding: 7px;
-  margin-top: 20px;
+  padding: 20px 20px 10px 20px;
+  margin-top: 5px;
+  font-family: 'Abel', sans-serif;
 
   .organization_name {
     color: lighten($d, 30%);
+    margin-left: 5px;
+    font-size: 0.9em;
+    font-family: 'PT Sans', sans-serif;
+    font-style: italic;
   }
 
   .cso_admin_operations {
     display: none;
     float: right;
   }
+
+  .description {
+    margin: 15px 25px;
+    text-align: justify;
+  }
+
   .name {
     display: inline;
+    font-size: 1.8em;
+    font-family: 'Dosis', sans-serif;
   }
   .response_operations {
     display: inline;
@@ -53,7 +69,8 @@ $app_min_height: 600px;
           text-decoration: underline;
         }
         color: $a;
-        font-size: 1.1em;
+        font-family: 'Dosis', sans-serif;
+        font-size: 0.9em;
         display: inline;
         padding-left: 5px;
         text-decoration: none;
