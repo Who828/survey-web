@@ -25,15 +25,9 @@
       <h2 class="name"><%= survey.name %></h2>
       <span class="organization_name"><%= survey.organization_name(@organizations) %></span>
       <span class="expiry_date"><%= survey.expiry_date %></span>
-      <div class="description">
-        <span class="truncated_description">
-          <%= truncate(survey.description, :length => 120)%>
-        </span>
-        <div class="more_description">
-          <%= survey.description%>
-        </div>
-        <%= survey.more_less_links %>      
-      </div>
+      <p class="description">
+        <%= survey.description %>
+      </p>
     </div>
 
     <ul class="operations">
@@ -60,11 +54,3 @@
 </div>
 
 <%= will_paginate @surveys %>
-
-<script type="text/javascript">
-$(document).ready(function() {
-  $('.survey_row').each(function(_, elem) {
-    new SurveyApp.SurveyRow($(elem));
-  });
-});
-</script>
