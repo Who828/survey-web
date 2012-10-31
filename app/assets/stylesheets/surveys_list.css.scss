@@ -34,7 +34,7 @@ $app_min_height: 600px;
   }
 
   .organization_name {
-    color: lighten($e, 30%);
+    color: $d;
     margin-left: 5px;
     font-size: 0.9em;
     font-family: 'PT Sans', sans-serif;
