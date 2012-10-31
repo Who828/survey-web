@@ -22,11 +22,17 @@ $app_min_height: 600px;
   padding: 7px;
   margin-top: 20px;
 
+  .organization_name {
+    color: lighten($d, 30%);
+  }
+
   .cso_admin_operations {
     display: none;
     float: right;
   }
-
+  .name {
+    display: inline;
+  }
   .response_operations {
     display: inline;
   }
@@ -61,6 +67,7 @@ $app_min_height: 600px;
   font-weight: bold;
 }
 .status {
-  font-size: 1.5em;
+  font-size: 0.9em;
+  color: lighten($b, 20%);
   float: right;
 }

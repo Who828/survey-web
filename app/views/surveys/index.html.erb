@@ -19,14 +19,12 @@
   <% @surveys.each do |survey| %>
   <div class="survey">
     <div class="status">
-      <% if survey.published %>
-        <i class="icon-flag"></i>
-      <% end %>
+      <%= pluralize(survey.responses.count, "response") if survey.responses.count > 0 %>
     </div>
     <div class="survey_details">
       <h2 class="name"><%= survey.name %></h2>
       <span class="organization_name"><%= survey.organization_name(@organizations) %></span>
-      <%= "Count is #{survey.responses.count}" %>
+      <span class="expiry_date"><%= survey.expiry_date %></span>
       <div class="description">
         <span class="truncated_description">
           <%= truncate(survey.description, :length => 120)%>
@@ -34,9 +32,8 @@
         <div class="more_description">
           <%= survey.description%>
         </div>
-        <%= survey.more_less_links %>
+        <%= survey.more_less_links %>      
       </div>
-      <span class="expiry_date"><%= survey.expiry_date %></span>
     </div>
 
     <ul class="operations">
