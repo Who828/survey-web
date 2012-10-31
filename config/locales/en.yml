@@ -38,7 +38,7 @@ en:
       mandatory: "Mandatory"
 
     index:
-      list_of_surveys: "List of Surveys"
+      surveys: "Surveys"
       show: "Show"
       published: "Published"
       unpublished: "Unpublished"

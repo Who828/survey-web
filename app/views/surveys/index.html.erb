@@ -1,6 +1,8 @@
 
 <%= stylesheet_link_tag 'surveys_list' %>
 
+<h1><%= t('.surveys') %></h1>
+
 <% if can? :create, Survey %>
 <div class="admin_tasks">
   <%= link_to t(".create_survey"), surveys_path, :method => :post %>

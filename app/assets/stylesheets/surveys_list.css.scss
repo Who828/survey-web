@@ -10,10 +10,17 @@ $disabled-action: lighten($c, 16%);
 
 $app_min_height: 600px;
 
-@import url(http://fonts.googleapis.com/css?family=Dosis:600|Abel|PT+Sans:400italic&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Dosis:600|Abel|PT+Sans:400,700italic&subset=latin,latin-ext);
 
 .container {
   @include container;
+}
+
+h1 {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.03em; 
+  font-size: 3em;
 }
 
 .pagination {

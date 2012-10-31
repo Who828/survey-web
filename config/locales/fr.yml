@@ -38,7 +38,7 @@ fr:
       mandatory: "Obligatoire"
 
     index:
-      list_of_surveys: "Liste des enquêtes"
+      surveys: "Enquêtes"
       show: "Montrer"
       published: "Publié"
       unpublished: "Inédit"
