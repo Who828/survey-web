@@ -39,7 +39,7 @@
       <span class="expiry_date"><%= survey.expiry_date %></span>
     </div>
 
-    <ul>
+    <ul class="operations">
       <div class="response_operations">
         <li><%= link_to survey.icon_for('icon-plus-sign', t(".add_response")), survey_responses_path(survey.id), :method => :post%></li>
         <li><%= link_to survey.icon_for('icon-list', t(".list_responses")), survey_responses_path(survey.id) %></li>

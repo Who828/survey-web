@@ -21,18 +21,32 @@ $app_min_height: 600px;
   background: $e;
   padding: 7px;
   margin-top: 20px;
-  li {
-    a {
-      i {
-        margin-right: 3px;
-        font-size: 1.1em;
-        color: $c;
-      }
-      font-size: 1.1em;
+
+  .cso_admin_operations {
+    display: none;
+    float: right;
+  }
+
+  .response_operations {
+    display: inline;
+  }
+
+  &:hover .cso_admin_operations, &.hover .cso_admin_operations { display: inline; }
+  .operations {
+    li {
       display: inline;
-      padding-left: 5px;
-      text-decoration: none;
-      color: $a;
+      a {
+        i {
+          margin-right: 3px;
+          font-size: 1.1em;
+          color: $c;
+        }
+        font-size: 1.1em;
+        display: inline;
+        padding-left: 5px;
+        text-decoration: none;
+        color: $a;
+      }
     }
   }
 }
