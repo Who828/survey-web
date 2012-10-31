@@ -1,11 +1,10 @@
 
 <%= stylesheet_link_tag 'surveys_list' %>
 
-<h1><%= t('.surveys') %></h1>
 
 <% if can? :create, Survey %>
 <div class="admin_tasks">
-  <%= link_to t(".create_survey"), surveys_path, :method => :post %>
+  <%= link_to icon_for('icon-plus', t(".create_survey")), surveys_path, :method => :post, :class => "create_survey" %>
   <div class="filters">
     <%= t(".show") %> : <%= link_to t(".published"), surveys_path(:published => true) %> |
     <%= link_to t(".unpublished"), surveys_path(:unpublished => true) %> |
@@ -14,6 +13,7 @@
 </div>
 <% end %>
 
+<h1><%= t('.surveys') %></h1>
 <div class="surveys_list">
   <% unless @surveys.blank? or @organizations.blank? %>
   <% @surveys.each do |survey| %>
@@ -32,20 +32,20 @@
 
     <ul class="operations">
       <div class="response_operations">
-          <li><%= link_to survey.icon_for('icon-plus-sign', t(".add_response")), survey_responses_path(survey.id), :method => :post, :class => survey.class_for_disabled %></li>
-          <li><%= link_to survey.icon_for('icon-list', t(".list_responses")), survey_responses_path(survey.id), :class => survey.class_for_disabled %></li>
+          <li><%= link_to icon_for('icon-plus-sign', t(".add_response")), survey_responses_path(survey.id), :method => :post, :class => survey.class_for_disabled %></li>
+          <li><%= link_to icon_for('icon-list', t(".list_responses")), survey_responses_path(survey.id), :class => survey.class_for_disabled %></li>
       </div>
 
       <div class="cso_admin_operations">
         <% if survey.published %>
-          <li><%= link_to survey.icon_for('icon-group', t(".share")), survey_share_with_organizations_path(survey.id) if can? :share_with_organizations, survey %></li>
+          <li><%= link_to icon_for('icon-group', t(".share")), survey_share_with_organizations_path(survey.id) if can? :share_with_organizations, survey %></li>
         <% else %>
-          <li><%= link_to survey.icon_for('icon-edit', t('.edit')), surveys_build_path(survey.id)  if can? :edit, survey %></li>
+          <li><%= link_to icon_for('icon-edit', t('.edit')), surveys_build_path(survey.id)  if can? :edit, survey %></li>
         <% end %>
-        <li><%= link_to survey.icon_for('icon-arrow-up', t(".publish")), survey_publish_to_users_path(survey.id) if can? :publish_to_users, survey %></li>
-        <li><%= link_to survey.icon_for('icon-copy', t('.duplicate')), duplicate_survey_path(survey.id), :method => :post, :data => { :confirm => t(:confirm) } if can? :duplicate, survey %></li>
-        <li><%= link_to survey.icon_for('icon-trash', t('.delete')), survey_path(survey.id), :method => :delete, :data => { :confirm => t(:confirm) } if can? :destroy, survey %></li>
-        <li><%= link_to survey.icon_for('icon-bar-chart', t('.reports')), report_survey_path(survey.id) if can? :report, survey %></li>
+        <li><%= link_to icon_for('icon-arrow-up', t(".publish")), survey_publish_to_users_path(survey.id) if can? :publish_to_users, survey %></li>
+        <li><%= link_to icon_for('icon-copy', t('.duplicate')), duplicate_survey_path(survey.id), :method => :post, :data => { :confirm => t(:confirm) } if can? :duplicate, survey %></li>
+        <li><%= link_to icon_for('icon-trash', t('.delete')), survey_path(survey.id), :method => :delete, :data => { :confirm => t(:confirm) } if can? :destroy, survey %></li>
+        <li><%= link_to icon_for('icon-bar-chart', t('.reports')), report_survey_path(survey.id) if can? :report, survey %></li>
       </div>
     </ul>
   </div>
