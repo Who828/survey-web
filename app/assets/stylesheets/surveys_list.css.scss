@@ -19,7 +19,8 @@ $app_min_height: 600px;
 .pagination {
   text-align: center;
   padding: 1em;
-  cursor: default; 
+  cursor: default;
+  font-family: 'PT Sans', sans-serif;
 
   & a, & span {
     padding: 0.2em 0.3em; 
