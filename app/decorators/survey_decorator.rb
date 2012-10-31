@@ -28,6 +28,10 @@ class SurveyDecorator < Draper::Base
     "<i class=#{css_class}></i>".html_safe + text
   end
 
+  def class_for_disabled
+    model.published? ? '' : 'disabled'
+  end
+
   private
 
   def template_tag(content, id)

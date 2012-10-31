@@ -32,8 +32,8 @@
 
     <ul class="operations">
       <div class="response_operations">
-        <li><%= link_to survey.icon_for('icon-plus-sign', t(".add_response")), survey_responses_path(survey.id), :method => :post%></li>
-        <li><%= link_to survey.icon_for('icon-list', t(".list_responses")), survey_responses_path(survey.id) %></li>
+          <li><%= link_to survey.icon_for('icon-plus-sign', t(".add_response")), survey_responses_path(survey.id), :method => :post, :class => survey.class_for_disabled %></li>
+          <li><%= link_to survey.icon_for('icon-list', t(".list_responses")), survey_responses_path(survey.id), :class => survey.class_for_disabled %></li>
       </div>
 
       <div class="cso_admin_operations">
@@ -54,3 +54,11 @@
 </div>
 
 <%= will_paginate @surveys %>
+
+<script type="text/javascript">
+  $(document).ready(function(){    
+    $('a.disabled').click(function(){
+      return false;
+    })
+  });
+</script>
