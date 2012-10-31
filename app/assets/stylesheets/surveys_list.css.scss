@@ -40,12 +40,17 @@ $app_min_height: 600px;
           margin-right: 3px;
           font-size: 1.1em;
           color: $c;
+          text-decoration: none !important;
         }
+        &:hover {
+          color: lighten($a, 20%);
+          text-decoration: underline;
+        }
+        color: $a;
         font-size: 1.1em;
         display: inline;
         padding-left: 5px;
         text-decoration: none;
-        color: $a;
       }
     }
   }
