@@ -6,6 +6,7 @@ $total-columns: 12;
 $column-width: 60px;
 $gutter-width: 20px;
 $grid-padding: 10px;
+$disabled-action: lighten($d, 16%);
 
 $app_min_height: 600px;
 
@@ -19,15 +20,21 @@ $app_min_height: 600px;
   @include span-columns(12, 12);
 }
 
-
 .survey {
-  background: $e;
   padding: 10px 15px;
   margin-top: 5px;
   font-family: 'Abel', sans-serif;
 
+  &.unpublished {
+    background-color: $a;
+  }
+
+  &.published {
+    background-color: $b;
+  }
+
   .organization_name {
-    color: lighten($d, 30%);
+    color: lighten($e, 30%);
     margin-left: 5px;
     font-size: 0.9em;
     font-family: 'PT Sans', sans-serif;
@@ -47,6 +54,7 @@ $app_min_height: 600px;
   .name {
     display: inline;
     font-size: 1.8em;
+    color: $e;
     font-family: 'Dosis', sans-serif;
   }
   .response_operations {
@@ -57,18 +65,29 @@ $app_min_height: 600px;
   .operations {
     li {
       display: inline;
+      a.disabled {
+        color: $disabled-action;
+        i { color: $disabled-action; }
+        &:hover {
+          color: $disabled-action;
+          text-decoration: none;
+          cursor: default;
+          i { color: $disabled-action; }
+        }
+      }
       a {
         i {
           margin-right: 3px;
           font-size: 1.1em;
-          color: $c;
+          color: $d;
           text-decoration: none !important;
         }
         &:hover {
-          color: lighten($a, 20%);
+          color: darken($d, 20%);
           text-decoration: underline;
+          i { color: darken($d, 20%); }
         }
-        color: $a;
+        color: $d;
         font-family: 'Dosis', sans-serif;
         font-size: 0.9em;
         display: inline;
@@ -85,6 +104,6 @@ $app_min_height: 600px;
 }
 .status {
   font-size: 0.9em;
-  color: lighten($b, 20%);
+  color: $d;
   float: right;
 }
